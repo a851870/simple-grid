@@ -1,11 +1,12 @@
 {
-  "name": "comic-app",
+  "name": "simple-grid",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
     "create-react-context": "^0.2.3",
     "enquire.js": "^2.1.6",
+    "node-sass": "^4.9.4",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",

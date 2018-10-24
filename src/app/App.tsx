@@ -12,10 +12,10 @@ class App extends React.Component {
       <div className={styles.app}>
         <header className={styles.header}>
           <img src={logo} className={styles.logo} alt="logo" />
-		  
+
 		  <div>1515</div>
 		  <Row gutter={8}>hehe
-			<Col span={2} xs={10}> 2333</Col>
+			<Col span={2} xs={10} className="col-auto"> 2333</Col>
 		  </Row>
           <p>
             Edit <code>src/App.tsx</code> and save to reload.

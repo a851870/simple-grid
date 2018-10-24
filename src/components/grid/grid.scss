@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+$breakpoint-map:(
+  sm: (
+    min-width: 576px,
+    max-width: 540px
+  ),
+  md: (
+    min-width: 768px,
+    max-width: 720px
+  ),
+  lg: (
+    min-width: 992px,
+    max-width: 960px
+  ),
+  xl: (
+    min-width: 1200px,
+    max-width: 1140px
+  )
+);
+
+.grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.grid-row {
+  @each $label, $map in $breakpoint-map {
+    @media (min-width: map-get($map, min-width)) {
+      max-width: map-get($map, max-width);
+    }
+  }
+}
+
+.col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.col-auto {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex: 0 0 ($i/12)*100%;
+    max-width: ($i/12)*100%;
+  }
+
+  .offset-#{$i} {
+    margin-left: ($i/12)*100%;
+  }
+
+  .order-#{$i} {
+    order: $i;
+  }
+}
+
+@each $label, $map in $breakpoint-map {
+  @media (min-width: map-get($map, min-width)) {
+    .col-#{$label}-auto {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+    }
+    @for $i from 1 through 12 {
+      .col-#{$label}-#{$i} {
+        flex: 0 0 ($i/12)*100%;
+        max-width: ($i/12)*100%;
+      }
+    }
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+

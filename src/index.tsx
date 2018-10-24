@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom'
 import App from './app/App';
-import './index.css';
+import './index.scss';
+import './components/grid/grid.scss'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

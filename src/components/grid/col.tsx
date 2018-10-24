@@ -41,8 +41,9 @@ export default class Col extends React.Component<ColProps> {
     render() {
         const props = this.props;
         const {
-            span, offset, xs, sm, md, lg, xl, xxl, prefixCls = 'grid-col', children, ...others
+            span, offset, xs, sm, md, lg, xl, xxl, className, prefixCls = 'col', children, ...others
         } = props;
+        console.log(className)
         let sizeClassObj = {};
         ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
             let sizeProps: ColSize = {}
@@ -64,7 +65,7 @@ export default class Col extends React.Component<ColProps> {
             [`${prefixCls}`]: prefixCls,
             [`col-span-${span}`]: span,
             [`col-offset-${offset}`]: offset,
-        }, classNames, sizeClassObj)
+        },  sizeClassObj, className)
         return (
             <RowContext.Consumer>
                 {({ gutter }) => {
